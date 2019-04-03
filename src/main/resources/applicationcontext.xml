@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="car1" class="com.springioc.collectionInjection.beans.Car">
+		<property name="name" value="Vitara Brezza"></property>
+		<property name="cost" value="4909808"></property>
+		<property name="model" value="2019"></property>
+	</bean>
+	<bean id="car2" class="com.springioc.collectionInjection.beans.Car">
+		<property name="name" value="Renault Duster"></property>
+		<property name="cost" value="1904353408"></property>
+		<property name="model" value="2016"></property>
+	</bean>
+	<bean id="user" class="com.springioc.collectionInjection.beans.User">
+		<property name="cars">
+			<list>
+				<ref bean="car1"></ref>
+				<ref bean="car2"></ref>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="employee1" class="com.springioc.collectionInjection.beans.Employee">
+		<property name="name" value="Amandeep Singh"></property>
+		<property name="age" value="35"></property>
+	</bean>
+
+	<bean id="employee2" class="com.springioc.collectionInjection.beans.Employee">
+		<property name="name" value="Sanjay Arora"></property>
+		<property name="age" value="35"></property>
+	</bean>
+
+	<bean id="address1" class="com.springioc.collectionInjection.beans.Address">
+		<property name="houseNumber" value="1"></property>
+		<property name="city" value="delhi"></property>
+	</bean>
+
+	<bean id="address2" class="com.springioc.collectionInjection.beans.Address">
+		<property name="houseNumber" value="2"></property>
+		<property name="city" value="delhi"></property>
+	</bean>
+
+	<bean id="employeeVilaAllocation"
+		class="com.springioc.collectionInjection.beans.EmployeeVilaAllocation">
+		<property name="employeeVilaAllocation">
+			<map>
+				<entry key-ref="employee1" value-ref="address1"></entry>
+				<entry key-ref="employee2" value-ref="address2"></entry>
+			</map>
+
+		</property>
+	</bean>
+</beans>
